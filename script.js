@@ -101,40 +101,14 @@ function restoreNotes() {
     const savedBody = localStorage.getItem("note_body_data");
     
     if (savedTitle !== null) {
-        noteTitle.innerText = savedTitle;
+        noteTitle.value = savedTitle;
     } else {
-        noteTitle.innerText = "Untitled Note";
+        noteTitle.value = "";
     }
 
     if (savedBody !== null) {
-        noteBody.innerText = savedBody;
+        noteBody.value = savedBody;
     } else {
-        noteBody.innerText = "Write assignment briefs or ideas here...";
+        noteBody.value = "";
     }
-
-    noteTitle.addEventListener("focus", () => {
-        if (noteTitle.innerText === "Untitled Note") {
-            noteTitle.innerText = "";
-        }
-    });
-
-    noteBody.addEventListener("focus", () => {
-        if (noteBody.innerText === "Write assignment briefs or ideas here...") {
-            noteBody.innerText = "";
-        }
-    });
-
-    noteTitle.addEventListener("blur", () => {
-        if (noteTitle.innerText.trim() === "") {
-            noteTitle.innerText = "Untitled Note";
-            saveNotes();
-        }
-    });
-
-    noteBody.addEventListener("blur", () => {
-        if (noteBody.innerText.trim() === "") {
-            noteBody.innerText = "Write assignment briefs or ideas here...";
-            saveNotes();
-        }
-    });
 }
