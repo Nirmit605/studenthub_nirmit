@@ -3,54 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - My First Web Dev Project</title>
-    <link rel="stylesheet" href="style.css">
+    <title>StudentHub - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
 
-    <div class="my-navbar">
-        <div class="logo-text">
-            <h2>Student<span style="color: #00adb5;">Hub</span></h2>
-        </div>
-        <div class="nav-links">
-            <a href="#home-section" class="nav-item active">Home</a>
-            <a href="#features-section" class="nav-item">Dashboard</a>
-            <a href="#features-section" class="nav-item">About</a>
-        </div>
-    </div>
-
-    <div id="home-section" class="hero-container">
-        <div class="hero-content">
-            <h1>Your Ultimate Campus Command Center</h1>
-            <p class="hero-subtitle">Streamline your academic life, organize daily tasks, and track your engineering journey all in one centralized platform.</p>
-            <a href="#features-section" class="cta-button">Get Started for Free</a>
-        </div>
-    </div>
-
-    <div id="features-section" class="features-container">
-        <h2 class="section-title">Platform Core Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 min-h-screen">
         
-        <div class="features-box-layout">
-            <div class="feature-card">
-                <h3>Academic Dashboard</h3>
-                <p>Track your courses, labs, and assignments seamlessly with a persistent database tracker.</p>
+      
+        <div class="md:col-span-3 bg-slate-800 p-6 border-b md:border-b-0 md:border-r border-slate-700 flex flex-col justify-between">
+            <div>
+                <div class="text-2xl font-bold tracking-wider mb-8 text-cyan-400">Student<span class="text-white">Hub</span></div>
+                <div class="space-y-3">
+                    <div class="p-3 bg-slate-700 rounded-lg font-medium text-cyan-400 cursor-pointer">Dashboard</div>
+                    <div class="p-3 hover:bg-slate-700 rounded-lg text-slate-400 cursor-pointer transition">Profile</div>
+                    <div class="p-3 hover:bg-slate-700 rounded-lg text-slate-400 cursor-pointer transition">Settings</div>
+                </div>
             </div>
+            <div class="pt-6 border-t border-slate-700 text-sm text-slate-500">
+                Logged in as: Nirmit
+            </div>
+        </div>
+
+      
+        <div class="md:col-span-9 p-6 md:p-10 space-y-8">
             
-            <div class="feature-card">
-                <h3>Smart Productivity</h3>
-                <p>Manage your daily hostel schedules, notes, and task lists without breaking a sweat.</p>
+           
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-sm">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight">Welcome Back!</h1>
+                    <p class="text-slate-400 text-sm mt-1">Manage your academic schedules and tasks smoothly.</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="bg-slate-900 px-4 py-2 rounded-lg text-center border border-slate-700">
+                        <span id="tasks-done" class="text-xl font-bold text-cyan-400">0</span>
+                        <span class="text-xs text-slate-400 block">Tasks Done</span>
+                    </div>
+                    <div class="bg-slate-900 px-4 py-2 rounded-lg text-center border border-slate-700">
+                        <span id="tasks-total" class="text-xl font-bold text-white">0</span>
+                        <span class="text-xs text-slate-400 block">Total Tasks</span>
+                    </div>
+                </div>
             </div>
+
+        
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold mb-4 flex justify-between items-center text-white">
+                            <span>Task Manager</span>
+                        </h2>
+                        <form id="task-form" class="flex gap-2 mb-4">
+                            <input type="text" id="task-input" placeholder="Create new task..." required class="flex-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:border-cyan-400 text-sm text-white">
+                            <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold px-4 py-2 rounded-lg transition text-sm">Add</button>
+                        </form>
+                        <ul id="task-list" class="space-y-2 max-h-[250px] overflow-y-auto pr-1"></ul>
+                    </div>
+                </div>
+
             
-            <div class="feature-card">
-                <h3>Developer Analytics</h3>
-                <p>Analyze and visualize data trends with built-in engineering-friendly performance toolkits.</p>
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 flex flex-col justify-between">
+                    <div class="flex flex-col h-full w-full">
+                        <div class="flex justify-between items-center mb-4">
+                            <input type="text" id="note-title" placeholder="Untitled Note" class="text-xl font-bold text-white bg-transparent border-b border-transparent hover:border-slate-600 focus:border-cyan-400 focus:outline-none w-full mr-4">
+                            <span id="save-status" class="text-xs text-slate-500 font-medium shrink-0">Saved</span>
+                        </div>
+                        <textarea id="note-body" placeholder="Write assignment briefs or ideas here..." class="w-full flex-1 min-h-[160px] p-3 bg-slate-900 border border-slate-700 rounded-lg text-sm text-slate-300 focus:outline-none focus:border-cyan-400 placeholder-slate-500 resize-none"></textarea>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2026 StudentHub. All rights reserved.</p>
-    </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
